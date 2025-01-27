@@ -48,4 +48,6 @@ def get_answer():
     return jsonify({"answer": latest_answer})
 
 if __name__ == '__main__':
-    app.run()
+    # Use the PORT from the environment variable and bind to 0.0.0.0 for external access
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
